@@ -21,7 +21,7 @@ function populateForm() {
 // so that it shows the # of items in the cart and a quick preview of the cart itself.
 function handleSubmit(event) {
 
-  // TODO: Prevent the page from reloading
+  // DONE: Prevent the page from reloading
 
   event.preventDefault();
 
@@ -42,7 +42,7 @@ function addSelectedItemToCart() {
   // console.log(cart.items[0].quantity); 
 }
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
+// DONE: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
   var itemCountEl = document.getElementById('itemCount');
   var add = 0;
