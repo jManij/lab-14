@@ -26,10 +26,12 @@ function showCart() {
   var tbEl = document.getElementById('cart');
   for (var i = 0; i < localStorage.length; i++) {
     var trEl = document.createElement('tr');
-    var tdEl = document.createElement('td');
+    trEl.id = localStorage.key(i);
+    var tdEl = document.createElement('button');
     var tdEl1 = document.createElement('td');
     var tdEl2 = document.createElement('td');
     tdEl.textContent = 'X';
+    tdEl.id = localStorage.key(i);
     tdEl1.textContent = localStorage.getItem(localStorage.key(i));
     tdEl2.textContent = localStorage.key(i);
 
@@ -41,11 +43,10 @@ function showCart() {
 }
 
 function removeItemFromCart(event) {
-
-  // TODO: When a delete link is clicked, use cart.removeItem to remove the correct item
-  // TODO: Save the cart back to local storage
-  // TODO: Re-draw the cart table
-
+  cart.removeItem(event.target.id);
+  location.reload(true);
+  renderCart();
+  showCart();
 }
 
 // This will initialize the page and draw the cart on screen
