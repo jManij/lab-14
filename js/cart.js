@@ -21,42 +21,23 @@ function renderCart() {
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
 function clearCart() {}
 
-// TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
+// DONE: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
+  var tbEl = document.getElementById('cart');
+  for (var i = 0; i < localStorage.length; i++) {
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    var tdEl1 = document.createElement('td');
+    var tdEl2 = document.createElement('td');
+    tdEl.textContent = 'X';
+    tdEl1.textContent = localStorage.getItem(localStorage.key(i));
+    tdEl2.textContent = localStorage.key(i);
 
-  // TODO: Find the table body
-  var cartbodyEL = document.getElementById('cart');
-  console.log(cartbodyEL);
-  var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-
-  // tdEl.textContent = 'X';
-
-  // trEl.appendChild(tdEl);
-  // cartbodyEL.appendChild(trEl);
-
-  tdEl.textContent = cart.items[0].quantity;
-  trEl.appendChild(tdEl);
-  cartbodyEL.appendChild(trEl);
-
-
-  // TODO: Iterate over the items in the cart
-
-  // for (var i = 0; i < cart.items.length; i++ ) {
-  //   var trEl = document.createElement('tr');
-  //   var tdEl = [];
-  //     tdEL[0] = 'X';
-  //     tdEL[1] = cart.items[i].quantity;
-  //     tdEL[2] = cart.items[i].product;
-  //   console.log(tdEL);
-    
-  // trEl.appendChild(tdEl);
-  // cartbodyEL.appendChild(trEl);
-  // }
-  // TODO: Create a TR
-  // TODO: Create a TD for the delete link, quantity,  and the item
-  // TODO: Add the TR to the TBODY and each of the TD's to the TR
-
+    trEl.appendChild(tdEl);
+    trEl.appendChild(tdEl1);
+    trEl.appendChild(tdEl2);
+    tbEl.appendChild(trEl);
+  }
 }
 
 function removeItemFromCart(event) {
