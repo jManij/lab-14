@@ -22,13 +22,12 @@ Cart.prototype.saveToLocalStorage = function() {
 };
 
 Cart.prototype.removeItem = function(item) {
-  // DONE: Fill in this instance method to remove one item from the cart.
-  // Note: You will have to decide what kind of parameter to pass in here!
-  // for (var i = 0; i < cart.items.length; i++) {
-  //   if (cart.items[i].product === item.product) {
-  //     cart.item.splice(i,1);
-  //   }
-  // }
+
+  for (var i = 0; i < localStorage.length; i++) {
+    if (item === localStorage.key(i)) {
+      localStorage.removeItem(item);
+    }
+  }
 };
 
 var CartItem = function(product, quantity) {
