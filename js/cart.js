@@ -25,6 +25,22 @@ function clearCart() {}
 function showCart() {
 
   // TODO: Find the table body
+  var tbEl = document.getElementById('cart');
+  for (var i = 0; i < localStorage.length; i++) {
+    var trEl = document.createElement('tr');
+    var tdEl = document.createElement('td');
+    var tdEl1 = document.createElement('td');
+    var tdEl2 = document.createElement('td');
+    tdEl.textContent = 'X';
+    tdEl1.textContent = localStorage.getItem(localStorage.key(i));
+    tdEl2.textContent = localStorage.key(i);
+
+
+    trEl.appendChild(tdEl);
+    trEl.appendChild(tdEl1);
+    trEl.appendChild(tdEl2);
+    tbEl.appendChild(trEl);
+  }
 
   // TODO: Iterate over the items in the cart
   // TODO: Create a TR
